@@ -37,9 +37,10 @@ function piggy(str) {
 }
 
 let voiceArray = [100, 84, 61, 52, 40, 39, 13, 15];
+// let voiceArray = [100, 84, 61, 52, 40, 39, 13, 15];
 
 function voiceRoller() {
-  let number = Math.floor(Math.random() * 8);
+  let number = Math.floor(Math.random() * 9);
   console.log(number);
   return number;
 }
@@ -49,7 +50,7 @@ function readToMe() {
   var voices = window.speechSynthesis.getVoices();
   msg.voice = voices[voiceArray[voiceRoller()]];
   msg.volume = 1; // From 0 to 1
-  msg.rate = 0.5; // From 0.1 to 10
+  msg.rate = 0.7; // From 0.1 to 10
   msg.pitch = 1; // From 0 to 2
   msg.text = output.textContent;
   msg.lang = "en-au";
