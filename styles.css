@@ -1,0 +1,103 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: Gotham Rounded, sans-serif;
+  font-weight: normal;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(to right, #f2359d, #edda44);
+}
+
+h1 {
+  margin: 0.5rem;
+  font-size: 5rem;
+  font-weight: 100;
+  font-family: 'Medula One';
+  color: #FFF;
+  text-shadow: 0 0 10px rgba(0,0,0, .5);
+}
+
+button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  width: 50%;
+  background: #FFF;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+button:hover {
+  cursor: pointer;
+  background: rgb(232, 231, 231);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+button:focus {
+  background: rgb(232, 231, 231);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+label {
+  font-size: 1.2rem;
+  margin: 0.5rem;
+}
+
+input {
+  margin: 0.5rem;
+  padding: .5rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1rem;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.form-field {
+  display: block;
+  margin: 1rem;
+  padding: 1rem;
+  width: 100%;
+  background: rgba(255,255,255,0.8);
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.form-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: .2rem;
+}
+.button-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: .2rem;
+}
+
+.output {
+  margin: 0.5rem;
+  padding: .5rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1rem;
+  background-color: #FFF;
+}
