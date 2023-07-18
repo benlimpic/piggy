@@ -64,26 +64,21 @@ input {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 }
 
 .form-field {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 1rem;
   padding: 1rem;
   width: 100%;
-  background: rgba(255,255,255,0.8);
+  background: rgba(6, 6, 6, 0.3);
   border-radius: 1rem;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
-.form-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: .2rem;
-}
-.button-box {
+.row-box {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -92,12 +87,11 @@ input {
   margin: .2rem;
 }
 
-.output {
+#output {
   margin: 0.5rem;
-  padding: .5rem;
-  width: 100%;
-  border-radius: 0.5rem;
-  border: none;
-  font-size: 1rem;
-  background-color: #FFF;
+  font-size: 2rem;
+  font-weight: 100;
+  font-family: 'Medula One';
+  color: #FFF;
+  text-shadow: 0 0 10px rgba(0,0,0, .9);
 }
