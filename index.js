@@ -1,22 +1,42 @@
 const input = document.getElementById("input");
 const button = document.getElementById("button");
-const readThis = document.getElementById("readThis");
+const inputRead = document.getElementById("inputRead");
 const output = document.getElementById("output");
+const synth = window.speechSynthesis;
+let clicked;
+let voices;
 
-button.addEventListener("click", () => {
-  output.textContent = piggy(input.value);
-  readToMe();
-});
+//@ VOICES------------------------------------------>
 
-readThis.addEventListener("click", () => {
-  output.textContent = input.value;
-  readToMe();
-});
+const loadVoices = () => {
+  voices = synth.getVoices();
+}
 
-function piggy(str) {
-  if (str.length === 0) {
-    return "";
-  }
+loadVoices()
+
+const readToMe = () => {
+  clicked = true
+  var msg = new SpeechSynthesisUtterance();
+  var voices = window.speechSynthesis.getVoices();
+  msg.voice = voices[15];
+  msg.volume = 1; // From 0 to 1
+  msg.rate = 0.7; // From 0.1 to 10
+  msg.pitch = 1; // From 0 to 2
+  msg.text = output.textContent;
+  msg.lang = "en-au";
+  synth.speak(msg);
+  msg.onend = (event) => {
+    inputRead.innerText = "▶︎"
+    clicked = false
+  };
+}
+
+//! PIG------------------------------------------>
+
+const piggy = (str) => {
+  // if (str.length === 0) {
+  //   return "";
+  // }
   str = str.toLowerCase();
   words = str.split(" ");
   piggyWords = words.map((word) => {
@@ -36,23 +56,26 @@ function piggy(str) {
   return piggyWords.join(" ");
 }
 
-let voiceArray = [100, 84, 61, 52, 40, 39, 13, 15];
-// let voiceArray = [100, 84, 61, 52, 40, 39, 13, 15];
+//# BUTTONS------------------------------------------>
 
-function voiceRoller() {
-  let number = Math.floor(Math.random() * 9);
-  console.log(number);
-  return number;
-}
+button.addEventListener("click", () => {
+  output.textContent = piggy(input.value);
+});
 
-function readToMe() {
-  var msg = new SpeechSynthesisUtterance();
-  var voices = window.speechSynthesis.getVoices();
-  msg.voice = voices[voiceArray[voiceRoller()]];
-  msg.volume = 1; // From 0 to 1
-  msg.rate = 0.7; // From 0.1 to 10
-  msg.pitch = 1; // From 0 to 2
-  msg.text = output.textContent;
-  msg.lang = "en-au";
-  speechSynthesis.speak(msg);
-}
+readThis.addEventListener("click", () => {
+  output.textContent = input.value;
+});
+
+inputRead.addEventListener("click", () => {
+  clicked = !clicked
+  if (clicked === false) {
+    synth.cancel();
+    inputRead.innerText = "▶︎"
+    return;
+  }
+  else if (clicked === true) {
+    inputRead.innerText = "⏸︎"
+    readToMe()
+    return
+  }
+});
