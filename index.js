@@ -56,18 +56,18 @@ const piggy = (str) => {
   return piggyWords.join(" ");
 };
 
-//# BUTTONS------------------------------------------>
+//# EVENTS------------------------------------------>
 
 button.addEventListener("click", () => {
-  pigClicked = !pigClicked
-  if (pigClicked === false) {
-  output.textContent = piggy(input.value);
-  button.innerText = "Eng";
-  return;
-  } else if (pigClicked === true) {
-  output.textContent = input.value;
-  button.innerText = "Pig";
-  return;
+  pigClicked = !pigClicked;
+  if (pigClicked === true) {
+    output.textContent = piggy(input.value);
+    button.innerText = "Eng";
+    return;
+  } else if (pigClicked === false) {
+    output.textContent = input.value;
+    button.innerText = "Pig";
+    return;
   }
 });
 
@@ -77,9 +77,10 @@ inputRead.addEventListener("click", () => {
     synth.cancel();
     inputRead.innerText = "▶︎";
     return;
-  } else if (readClicked === true) {
+  } else if (readClicked === true && output.textContent !== "") {
     inputRead.innerText = "⏸︎";
     readToMe();
     return;
   }
 });
+
