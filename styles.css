@@ -50,7 +50,7 @@ label {
   margin: 0.5rem;
 }
 
-input {
+textarea {
   margin: 0.5rem;
   padding: .5rem;
   width: 100%;
@@ -64,9 +64,14 @@ input {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 1rem;
+  padding: 1rem;
+  max-width: 400px;
+  min-width: 400px;
 }
 
 .form-field {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,9 +92,19 @@ input {
   margin: .2rem;
 }
 
+.output-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 #output {
+  width: 100%;
   margin: 0.5rem;
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 100;
   font-family: 'Medula One';
   color: #FFF;
